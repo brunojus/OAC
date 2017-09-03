@@ -46,19 +46,6 @@ int32_t lb(uint32_t *address, int16_t kte){
 }
 
 
-// lê um byte - retorna inteiro sem sinal
-
-int32_t lbu(uint32_t *address, int16_t kte){
-    uint32_t pos = (*address + kte)/4;
-    uint32_t res = (*address + kte)%4;
-    int32_t word = mem[pos];
-
-    word = word>>8*res;
-    int32_t pattern = 0x000000ff;
-    int32_t wordanded = (word&pattern);
-
-    return wordanded;
-}
 
 
 // lê meia palavra, 16 bits-retorna inteiro com sinal
@@ -74,23 +61,6 @@ int32_t lh(uint32_t *address, int16_t kte){
 
     return wordanded;
 }
-
-
-// lê meia palavra, 16 bits- retorna inteiro sem sinal
-int32_t lhu(uint32_t *address, uint16_t kte){
-    uint32_t pos = (*address + kte)/4;
-    uint32_t res = (*address + kte)%4;
-    int32_t word = mem[pos];
-    if (res>1){
-        word = word>>16;
-    }
-    int32_t pattern = 0x0000ffff;
-    int32_t wordanded = (word & pattern);
-
-    return wordanded;
-}
-
-
 
 // escreve um inteiro alinhado na memória - endereços múltiplos de 4
 void sw(uint32_t address, int16_t kte, int32_t dado){
