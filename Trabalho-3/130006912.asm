@@ -260,7 +260,7 @@ loop3:
 		j loop3
 
 missmatch: 
-		addi $v0,$zero,-1
+		addi $v0,$zero,1
 		j endfunction
 checkt2:
 		bnez $t4,missmatch
@@ -357,13 +357,4 @@ printUp:
 ########################################### Fim do Bloco da Função Strupr ###########################################
 
 
-#-------------------------------------------------------------------------
-# O label load_image: carrega uma imagem em formato RAW RGB para memoria
-# Formato RAW: sequencia de pixels no formato RGB, 8 bits por componente
-# de cor, R o byte mais significativo
-#
-# Parametros:
-#  $a0: endereco do string ".asciiz" com o nome do arquivo com a imagem
-#  $a1: endereco de memoria para onde a imagem sera carregada
-#  $a2: endereco de uma palavra na memoria para utilizar como buffer
-#  $a3: tamanho da imagem em pixels
+
